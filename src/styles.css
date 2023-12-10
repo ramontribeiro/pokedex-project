@@ -1,0 +1,156 @@
+/* You can add global styles to this file, and also import other style files */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: linear-gradient(0deg,rgba( 255,255,255,.75 ),rgba( 255,255,255,.75 )),url(./assets/bg_pokeball.jpg);
+}
+
+.badge-bug {
+  background: #8cb230;
+}
+
+.badge-dark {
+  background: #58575f;
+}
+
+.badge-dragon {
+  background: #0f6ac0;
+}
+
+.badge-electric {
+  background: #eed535;
+}
+
+.badge-fairy {
+  background: #ed6ec7;
+}
+
+.badge-fighting {
+  background: #d04164;
+}
+
+.badge-fire {
+  background: #fd7d24;
+}
+
+.badge-flying {
+  background: #748fc9;
+}
+
+.badge-ghost {
+  background: #556aae;
+}
+
+.badge-grass {
+  background: #62b957;
+}
+
+.badge-ground {
+  background: #dd7748;
+}
+
+.badge-ice {
+  background: #61cec0;
+}
+
+.badge-normal {
+  background: #9da0aa;
+}
+
+.badge-poison {
+  background: #a552cc;
+}
+
+.badge-psychic {
+  background: #ea5d60;
+}
+
+.badge-rock {
+  background: #baab82;
+}
+
+.badge-steel {
+  background: #417d9a;
+}
+
+.badge-water {
+  background: #4a90da;
+}
+
+.bug {
+  background: #8bd674;
+}
+
+.dark {
+  background: #75747e;
+}
+
+.dragon {
+  background: #1582e7;
+}
+
+.electric {
+  background: #f2cb55;
+}
+
+.fairy {
+  background: #e98acc;
+}
+
+.fighting {
+  background: #eb4971;
+}
+
+.fire {
+  background: #ff9448;
+}
+
+.flying {
+  background: #829edb;
+}
+
+.ghost {
+  background: #6882d4;
+}
+
+.grass {
+  background: #8bbe8a;
+}
+
+.ground {
+  background: #f78551;
+}
+
+.ice {
+  background: #6bddce;
+}
+
+.normal {
+  background: #c5c9d6;
+}
+
+.poison {
+  background: #bd5fe9;
+}
+
+.psychic {
+  background: #ff787a;
+}
+
+.rock {
+  background: #d5c895;
+}
+
+.steel {
+  background: #4d92b4;
+}
+
+.water {
+  background: #58abf6;
+}

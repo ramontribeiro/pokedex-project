@@ -1,0 +1,35 @@
+<div
+  [ngClass]="this.pokemon.types[0].type.name"
+  class="p-5 flex flex-row items-center border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+  *ngIf="pokemon$ | async"
+>
+  <div class="w-1/2 flex flex-col">
+    <span class="tracking-wide text-white">
+      #{{ pokemon.id.toString().padStart(3, "0") }}
+    </span>
+    <h5
+      class="font-sans mb-2 text-3xl font-bold tracking-wide text-white dark:text-white"
+    >
+      {{ pokemon.name | uppercaseFirst }}
+    </h5>
+    <div class="flex flex-row">
+      <span
+        *ngFor="let pokemonType of pokemon.types"
+        style="width: fit-content"
+        [class]="'badge-' + pokemonType.type.name"
+        class="text-white my-1 text-xs font-xs me-2 px-2.5 py-0.5 rounded-full dark:bg-blue-900 dark:text-blue-300"
+      >
+        {{ pokemonType.type.name | uppercaseFirst }}
+      </span>
+    </div>
+  </div>
+  <div class="w-1/2 flex justify-center card">
+    <img
+      class="rounded-t-lg items-stretch"
+      [src]="pokemon.sprites.other.dream_world.front_default"
+      [alt]="pokemon.name"
+      width="auto"
+      height="96px"
+    />
+  </div>
+</div>
