@@ -1,18 +1,28 @@
 export class PokemonDetail {
   id: number;
-  order: number;
   name: string;
-  height: number;
-  abilities: Ability[];
-  spices: Species;
-  types: Type[];
-  weight: number;
-  sprites: Sprite;
-  stats: Stat[];
+  imagem: string;
+  types?: Type[];
 
-  constructor() {
-    this.abilities = [];
-    this.types = [];
+  abilities?: Ability[];
+  height?: number;
+  weight?: number;
+  species?: Species;
+
+  sprites?: Sprite;
+  // order?: number;
+  // stats?: Stat[];
+
+  constructor(id: number, name: string, types: Type[], imagem: string) {
+    this.id = id;
+    this.name = name;
+    this.imagem = imagem;
+    this.types = types;
+
+    // this.abilities = [];
+    // this.height = 0;
+    // this.weight = 0;
+    // this.sprites: Sprite;
   }
 }
 
@@ -33,6 +43,7 @@ class Type {
   type: {
     name: string;
   };
+  name: string;
 }
 
 class Sprite {
