@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PokemonDetail } from '../pokemon-list/models/pokemon-detail.model';
+import { PokemonDetail } from '../../shared/models/classes/pokemon-detail.model';
 import { PokemonService } from '../services/pokemon.service';
 import { tap } from 'rxjs';
 
