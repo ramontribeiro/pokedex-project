@@ -1,10 +1,9 @@
 <div
-  [ngClass]="this.pokemon.types[0].type.name"
   class="p-5 flex flex-row items-center border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
-  *ngIf="pokemon$ | async"
+  [ngClass]="this.pokemon.types[0].type.name"
 >
   <div class="w-1/2 flex flex-col">
-    <span class="tracking-wide text-white">
+    <span class="tracking-wide">
       #{{ pokemon.id.toString().padStart(3, "0") }}
     </span>
     <h5

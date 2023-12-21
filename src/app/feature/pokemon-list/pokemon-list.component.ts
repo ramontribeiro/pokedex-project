@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
-import { PokemonList } from '../../shared/models/classes/pokemon-list.model';
-import { map, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -9,57 +8,22 @@ import { map, tap } from 'rxjs';
   styleUrls: ['./pokemon-list.component.css'],
 })
 export class PokemonListComponent {
-  // private offset: number;
-  // pokemonList!: PokemonList[];
-
-  pokemonList$;
-  list = [];
-  listDetail = [];
-
   offset = 0;
 
-  constructor(private pokemonService: PokemonService) {}
+  pokemonList$ = this.pokemonService.pokemons$;
+
+  isLoading$ = this.pokemonService.isLoading$;
+
+  constructor(private pokemonService: PokemonService, private router: Router) {}
 
   ngOnInit(): void {
-    this.getPage(this.offset);
+    // this.getPage(this.offset);
   }
 
-  setfilter(filter) {
-    console.log(filter);
-
-    // this.pokemonService.setFilter(filter);
-    this.pokemonService
-      .filterForType(filter)
-      .pipe(
-        tap((x) => {
-          this.list = x;
-          console.log(x);
-        })
-      )
-      .subscribe();
-  }
+  ngAfterViewInit() {}
 
   getPage(offset: number) {
-    this.pokemonList$ = this.pokemonService.getPokemonList(offset).pipe(
-      // map((x) =>
-      //   x.map((x) =>
-      //     this.pokemonService
-      //       .getPokemonDetail(x.url)
-      //       .subscribe({
-      //         next: (resp) => {
-      //           this.list.push(resp);
-      //         },
-      //       })
-      //   )
-      // )
-      tap((x) => {
-        this.list = x;
-        console.log(x);
-        // this.listDetail.map(individual => {
-        //   this.pokemonService.getPokemonDetail(individual.url)
-        // })
-      })
-    );
+    this.pokemonService.loadByPage(offset);
   }
 
   nextPage() {
@@ -72,29 +36,20 @@ export class PokemonListComponent {
     this.getPage(this.offset);
   }
 
-  // getIndvidual(individual){
-  //   this.pokemonService.getPokemonDetail(individual.url).subscribe({
-  //     next: (resp) => {
-  //       this.list.push(resp)
-  //     }
-  //   })
-  // }
+  setfilter(filter: string) {
+    if (filter == 'todos') {
+      this.getPage(this.offset);
+      return;
+    }
 
-  // getPage(offset: number) {
-  // if(!this.isLoading && !this.isLastPage) {
-  //   this.isLoading = true;
-  // this.pokemonService.getPokemonList(offset);
-  // .subscribe((list: PokemonList[]) => {
-  //   console.log(list);
-  //   this.pokemonList = list;
-  // if(list.length === 0) {
-  //   this.isLastPage = true;
-  // }
+    this.pokemonService.filterForType(filter);
+  }
 
-  // if(!this.isLastPage) {
-  //   this.getPokemon(list);
-  // }
-  // });
-  // }
-  // }
+  search(data: any) {
+    this.pokemonService.searchForName(data);
+  }
+
+  selectCard(data) {
+    this.router.navigate(['view', data.name]);
+  }
 }
