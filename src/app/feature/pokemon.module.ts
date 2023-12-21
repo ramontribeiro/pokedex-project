@@ -14,9 +14,9 @@ import { SortByOrderPipe } from '../shared/pipes/sortByOrder.pipe';
     PokemonListComponent,
     CardComponent,
     UppercaseFirstPipe,
+    SortByOrderPipe,
     PaginationComponent,
     FilterComponent,
-    SortByOrderPipe,
   ],
   imports: [CommonModule, PokemonRoutingModule],
 })
