@@ -1,14 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PokemonDetail } from '../../shared/models/classes/pokemon-detail.model';
-import { PokemonService } from '../services/pokemon.service';
+import { PokemonDetail } from '../../models/classes/pokemon-detail.model';
+import { PokemonService } from '../../../feature/services/pokemon.service';
 import { tap } from 'rxjs';
 
 @Component({
-  selector: 'app-pokemon-card',
-  templateUrl: './pokemon-card.component.html',
-  styleUrls: ['./pokemon-card.component.css'],
+  selector: 'app-card',
+  templateUrl: './card.component.html',
+  styleUrls: ['./card.component.css'],
 })
-export class PokemonCardComponent implements OnInit {
+export class CardComponent implements OnInit {
   @Input() pokemonUrl: any;
 
   pokemon$;

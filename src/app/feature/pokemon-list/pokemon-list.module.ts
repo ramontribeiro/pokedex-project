@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { PokemonListComponent } from './pokemon-list.component';
 import { PokemonListRoutingModule } from './pokemon-list-routing.module';
-import { PokemonCardComponent } from '../pokemon-card/pokemon-card.component';
+import { CardComponent } from '../../shared/components/card/card.component';
 import { GetIndividualByIdPipe } from 'src/app/shared/pipes/getIndividualById.pipe';
 import { UppercaseFirstPipe } from 'src/app/shared/pipes/uppercaseFirst.pipe';
 import { PaginationComponent } from 'src/app/shared/components/pagination/pagination.component';
@@ -12,7 +12,7 @@ import { FilterComponent } from 'src/app/shared/components/filter/filter.compone
 @NgModule({
   declarations: [
     PokemonListComponent,
-    PokemonCardComponent,
+    CardComponent,
     GetIndividualByIdPipe,
     UppercaseFirstPipe,
     PaginationComponent,
