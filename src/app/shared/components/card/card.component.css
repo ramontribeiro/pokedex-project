@@ -40,7 +40,7 @@ mat-card {
 .type-dragon { background-color: #F9BE00; }
 
 .card{
-  background: url(../../../assets/pokeball.svg) ;
+  background: url(../../../../assets/image/pokeball.svg) ;
   background-size: cover;
   background-position: right 10px center;
   background-repeat: no-repeat;

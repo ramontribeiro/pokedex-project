@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PokemonService } from '../services/pokemon.service';
-import { PokemonList } from './models/pokemon-list.model';
+import { PokemonList } from '../../shared/models/classes/pokemon-list.model';
 import { map, tap } from 'rxjs';
 
 @Component({

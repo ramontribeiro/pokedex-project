@@ -5,9 +5,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./feature/pokemon-list/pokemon-list.module').then(
-        (m) => m.PokemonListModule
-      ),
+      import('./feature/pokemon.module').then((m) => m.PokemonModule),
     // canActivate:[AuthGuard],
     // data: { acesso: 'USER'}
   },

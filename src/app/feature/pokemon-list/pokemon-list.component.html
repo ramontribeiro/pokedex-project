@@ -1,9 +1,9 @@
 <app-filter (filter)="setfilter($event)"></app-filter>
 <div class="grid grid-cols-4 gap-4 p-5" *ngIf="pokemonList$ | async">
-  <app-pokemon-card
+  <app-card
     *ngFor="let item of list"
     [pokemonUrl]="item.url ? item.url : item.pokemon.url"
-  ></app-pokemon-card>
+  ></app-card>
 </div>
 <div class="p-5">
   <app-pagination (next)="nextPage()" (previous)="previousPage()">
