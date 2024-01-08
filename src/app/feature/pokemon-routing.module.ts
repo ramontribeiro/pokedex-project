@@ -37,6 +37,10 @@ const routes: Routes = [
     //   },
     // ]
   },
+  // {
+  //   path: 'view/:name',
+  //   component: PokemonDetailComponent,
+  // }
 ];
 
 @NgModule({

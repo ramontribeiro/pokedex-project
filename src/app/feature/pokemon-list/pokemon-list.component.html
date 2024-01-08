@@ -1,11 +1,26 @@
+<app-search class="m3" (textSearch)="search($event)"></app-search>
+<br />
 <app-filter (filter)="setfilter($event)"></app-filter>
-<div class="grid grid-cols-4 gap-4 p-5" *ngIf="pokemonList$ | async">
-  <app-card
-    *ngFor="let item of list"
-    [pokemonUrl]="item.url ? item.url : item.pokemon.url"
-  ></app-card>
-</div>
-<div class="p-5">
-  <app-pagination (next)="nextPage()" (previous)="previousPage()">
-  </app-pagination>
+<br />
+<br />
+<button (click)="getPage(0)">load</button>
+
+<div class="grid grid-cols-4 gap-4 p-5" *ngIf="pokemonList$ | async as list">
+  <ng-container *ngIf="list.length > 0; else loaded">
+    <app-card
+      *ngFor="let item of list | sortByOrder"
+      [pokemon]="item"
+      (selectItem)="selectCard($event)"
+    ></app-card>
+
+    <div class="p-5">
+      <app-pagination (next)="nextPage()" (previous)="previousPage()">
+      </app-pagination>
+    </div>
+  </ng-container>
+
+  <ng-template #loaded>
+    <h1>loading...</h1>
+    <!-- <app-loading></app-loading> -->
+  </ng-template>
 </div>

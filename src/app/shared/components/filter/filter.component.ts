@@ -9,9 +9,23 @@ import { TYPES } from '../../models/constants/pokemons-types';
 export class FilterComponent {
   @Output() filter = new EventEmitter();
 
-  types = TYPES;
+  isOpen = false;
+  pokemonsTypes = TYPES;
+  lastfilter: string = '';
+
+  handleDropDown() {
+    this.isOpen = !this.isOpen;
+  }
 
   filtering(name) {
+    this.handleDropDown();
+
+    if (this.lastfilter == name) {
+      // alert('Mesmo filtro!')
+      return;
+    }
+
+    this.lastfilter = name;
     this.filter.emit(name);
   }
 }
